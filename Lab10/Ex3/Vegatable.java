@@ -1,0 +1,4 @@
+
+interface Vegetable {
+    String getInfo();
+}

@@ -1,27 +1,43 @@
+import java.util.Scanner;
+
 public class Exercise4 {
-    public static int countElements(int[] arr, int target) {
+
+    public static int countElement(int[] arr, int k) {
         int count = 0;
+
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target) {
+            if (arr[i] == k) {
                 count++;
             }
         }
+
         return count;
     }
-    public static void printArr(int arr[]){
+
+    public static int[] createArray(int n){
+        Scanner sc= new Scanner(System.in);
+        int arr[]= new int[n];
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+            arr[i]=sc.nextInt();
+
         }
-        System.out.println(); 
+        sc.close();
+        return arr;
     }
 
     public static void main(String[] args) {
-        int[] numbers = {3, 5, 2, 5, 9, 5, 1};
-        int targetNumber = 5;
+        Scanner sc= new Scanner(System.in);
+        System.out.print ("enter number of element: ");
+        int n= sc.nextInt();
+        int arr[]=createArray(n);
         
-        int occurrences = countElements(numbers, targetNumber);
-        printArr(numbers);
-        System.out.println("Looking for: " + targetNumber);
-        System.out.println("Count: " + occurrences); 
+        System.out.println();
+        System.out.println("enter the value: ");
+        int k= sc.nextInt();
+
+        int result = countElement(arr, k);
+
+        System.out.println(k + " appears " + result);
+        sc.close();
     }
 }
