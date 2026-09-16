@@ -29,7 +29,7 @@ public class Exercise4 {
     public static int countWords(String str) {
         if (str == null || str.trim().isEmpty()) return 0;
         // Tách chuỗi dựa trên khoảng trắng
-        String[] words = str.trim().split("\\s+");
+        String[] words = str.trim().split(" ");
         return words.length;
     }
 

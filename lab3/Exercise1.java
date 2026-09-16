@@ -64,7 +64,8 @@ public class Exercise1 {
                     }
                 }
                 if (!alreadyAdded) {
-                    temp[count++] = arr[i];
+                    temp[count] = arr[i];
+                    count++;
                 }
             }
         }

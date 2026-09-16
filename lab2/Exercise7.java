@@ -4,9 +4,9 @@ public class Exercise7 {
 
     public static void square(int arr[]) {
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = arr[i] * arr[i];
+            arr[i] = arr[i]*arr[i];
         }
-    }
+    } 
 
     public static int[] createArray(int n, Scanner sc) {
         int[] arr = new int[n];

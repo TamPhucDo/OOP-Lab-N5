@@ -55,49 +55,47 @@ public class Exercise3 {
     /**
      * Viết hoa chữ cái đầu tiên của mỗi từ (Capitalize)
      */
-    public static String capitalizeFullName(String fullName) {
-        if (fullName == null || fullName.trim().isEmpty()) return "";
-        String[] words = fullName.trim().split("\\s+");
-        StringBuilder result = new StringBuilder();
-        
-        for (int i = 0; i < words.length; i++) {
-            if (!words[i].isEmpty()) {
-                // Viết hoa chữ cái đầu và viết thường phần còn lại của từ
-                result.append(Character.toUpperCase(words[i].charAt(0)));
-                if (words[i].length() > 1) {
-                    result.append(words[i].substring(1).toLowerCase());
-                }
-                
-                if (i < words.length - 1) {
-                    result.append(" ");
-                }
-            }
-        }
-        return result.toString();
+
+    public static String capitalizeFullName(String s) {
+        s=s.trim();
+          String[] parts= s.split(" ");
+          String result= new String();
+          
+          
+          for (int i = 0; i < parts.length; i++) {
+               if (!parts[i].isEmpty()){
+               result += parts[i].substring(0, 1).toUpperCase()
+                         + parts[i].substring(1).toLowerCase()
+                         + " ";
+               }
+          }
+          return result.trim();
     }
 
     /**
      * Viết hoa tất cả Nguyên âm (Vowels: a, e, i, o, u) và viết thường Phụ âm (Consonants)
      */
     public static String uppercaseVowelsLowercaseConsonants(String fullName) {
-        if (fullName == null) return "";
-        StringBuilder result = new StringBuilder();
-        String vowels = "aeiouAEIOU"; // Chuỗi chứa các nguyên âm
-        
-        for (char c : fullName.toCharArray()) {
-            // Nếu ký tự là chữ cái
-            if (Character.isLetter(c)) {
-                // Kiểm tra xem ký tự đó có nằm trong chuỗi nguyên âm không
-                if (vowels.indexOf(c) != -1) {
-                    result.append(Character.toUpperCase(c));
-                } else {
-                    result.append(Character.toLowerCase(c));
-                }
+        if (fullName == null) {
+            return "";
+        }
+
+        String result = "";
+
+        for (int i = 0; i < fullName.length(); i++) {
+            char c = fullName.charAt(i);
+
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                result += Character.toUpperCase(c);
+            } else if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                result += c;
+            } else if (Character.isLetter(c)) {
+                result += Character.toLowerCase(c);
             } else {
-                // Giữ nguyên khoảng trắng hoặc các ký tự khác
-                result.append(c);
+                result += c;
             }
         }
-        return result.toString();
+
+        return result;
     }
 }
